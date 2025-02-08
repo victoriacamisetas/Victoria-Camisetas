@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Victoria Camisetas - Tienda de Camisetas de Fútbol</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('camisetas/pasto cancha.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            background-color: #444;
+        }
+
+        .hero {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: orange;
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 15px;
+            width: 250px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product h3 {
+            color: #333;
+            margin: 15px 0;
+        }
+
+        .product p {
+            color: #777;
+            font-size: 1.1em;
+        }
+
+        .product .price {
+            font-size: 1.3em;
+            color: #b12704;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .product button {
+            padding: 12px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        .product button:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            width: 70%;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .steps {
+            list-style-type: decimal;
+            margin-left: 20px;
+            font-size: 1.1em;
+        }
+
+        .steps a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .steps a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo para el logo de Mercado Pago y el alias */
+        .mercado-pago {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .mercado-pago img {
+            margin-right: 15px;
+            width: 150px;
+        }
+
+        .mercado-pago p {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>👑⚽ Victoria Camisetas ⚽👑</h1>
+        <p>¡Las mejores camisetas de fútbol retro y actuales solamente para vos!</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Tienda</a>
+        <a href="sobre-nosotros.html">Sobre Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <div class="hero">
+        <p><mark>¡Haz tu compra hoy mismo y lleva la camiseta de tu equipo favorito!</mark></p>
+    </div>
+
+    <div class="products">
+        <div class="product">
+            <img src="camisetas/meca.jpeg" alt="Camiseta Fiorentina Retro">
+            <h3>Camiseta Fútbol - Fiorentina Retro - Batistuta</h3>
+            <p>Íconica camiseta para un 9 como vos</p>
+            <p class="price">ARS$25.000</p>
+            <button>Comprar Ahora</button>
+        </div>
+        <div class="product">
+            <img src="camisetas/supa.jpeg" alt="Camiseta Manchester United - Garnacho">
+            <h3>Camiseta Fútbol - Manchester United - Garnacho</h3>
+            <p>Moderna y elegante.</p>
+            <p class="price">ARS$22.000</p>
+            <button>Comprar Ahora</button>
+        </div>
+        <div class="product">
+            <img src="camisetas/pinba.jpeg" alt="Camiseta Manchester United - Cristiano Ronaldo">
+            <h3>Camiseta Fútbol - Manchester United - Cristiano Ronaldo</h3>
+            <p>Clásica e irrepetible.</p>
+            <p class="price">ARS$25.000</p>
+            <button>Comprar Ahora</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Victoria Camisetas | Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>¡Pasos para comprar tu camiseta!</h2>
+            <ol class="steps">
+                <li>Elegir la camiseta.</li>
+                <li>Elegir el talle.</li>
+                <li>Abonar el dinero en nuestra cuenta.</li>
+                <li>Mandar el comprobante por WhatsApp para verificar que todo esté correcto.</li>
+                <li>Mandarnos tus datos: Nombre, dirección, etc.</li>
+                <li>¡Listo! A los pocos días recibirás tu camiseta.</li>
+            </ol>
+            <p>Si tienes alguna duda, puedes escribirnos por WhatsApp.</p>
+            <a href="https://wa.me/5493436467953" target="_blank">Contacta por WhatsApp</a>
+            
+            <!-- Logo de Mercado Pago y Alias -->
+            <div class="mercado-pago">
+                <img src="camisetas/Mercado Pago.jpg" alt="Mercado Pago Logo">
+                <p><strong>Alias: victoriacamisetas</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Obtener el modal
+        var modal = document.getElementById("myModal");
+
+        // Obtener los botones de "Comprar Ahora"
+        var btns = document.querySelectorAll(".product button");
+
+        // Obtener el elemento <span> (que cierra el modal)
+        var span = document.getElementsByClassName("close")[0];
+
+        // Cuando el usuario hace clic en cualquier botón "Comprar Ahora"
+        btns.forEach(function(btn) {
+            btn.addEventListener("click", function() {
+                modal.style.display = "block"; // Mostrar el modal
+            });
+        });
+
+        // Cuando el usuario hace clic en <span> (cerrar el modal)
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Cuando el usuario hace clic en cualquier parte fuera del modal, cerrarlo
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

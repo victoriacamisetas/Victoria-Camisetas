@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Victoria Camisetas - Tienda de Camisetas de Fútbol</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
     <style>
+        :root {
+            --color-fondo-nav: #333;
+            --color-fondo-header: rgba(0, 0, 0, 0.7);
+            --color-texto-principal: #fff;
+            --color-acento: orange;
+            --color-boton-fondo: #28a745;
+            --color-boton-hover: #218838;
+            --color-precio: #b12704;
+            --color-fondo-producto: rgba(255, 255, 255, 0.9);
+            --fuente-principal: 'Poppins', Arial, sans-serif;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: var(--fuente-principal);
             margin: 0;
             padding: 0;
             background-image: url('camisetas/pasto cancha.jpg');
             background-size: cover;
             background-position: center;
+            color: #333;
         }
 
         header {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 40px;
+            background-color: var(--color-fondo-header);
+            color: var(--color-texto-principal);
+            padding: 40px 20px;
             text-align: center;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.7);
         }
 
         header h1 {
@@ -35,30 +48,34 @@
         nav {
             display: flex;
             justify-content: center;
-            background-color: #333;
+            background-color: var(--color-fondo-nav);
             padding: 10px 0;
         }
 
         nav a {
-            color: white;
+            color: var(--color-texto-principal);
             padding: 14px 20px;
             text-decoration: none;
             text-transform: uppercase;
-            font-weight: bold;
+            font-weight: 600;
             font-size: 1.1em;
+            transition: background-color 0.3s ease;
+            border-radius: 4px;
         }
 
-        nav a:hover {
+        nav a:hover,
+        nav a.active {
             background-color: #444;
         }
 
         .hero {
             background-color: rgba(0, 0, 0, 0.6);
-            color: orange;
+            color: var(--color-acento);
             text-align: center;
             padding: 50px 20px;
             font-size: 2em;
             font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
         }
 
         .products {
@@ -69,7 +86,7 @@
         }
 
         .product {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: var(--color-fondo-producto);
             border: 1px solid #ddd;
             padding: 20px;
             margin: 15px;
@@ -82,7 +99,7 @@
 
         .product:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
         }
 
         .product img {
@@ -93,62 +110,67 @@
 
         .product h3 {
             color: #333;
-            margin: 15px 0;
+            margin: 15px 0 8px 0;
         }
 
         .product p {
-            color: #777;
-            font-size: 1.1em;
+            color: #555;
+            font-size: 1.05em;
+            margin: 5px 0 15px 0;
         }
 
         .product .price {
             font-size: 1.3em;
-            color: #b12704;
+            color: var(--color-precio);
             font-weight: bold;
-            margin: 15px 0;
+            margin-bottom: 15px;
         }
 
         .product button {
             padding: 12px 20px;
-            background-color: #28a745;
+            background-color: var(--color-boton-fondo);
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1.1em;
+            transition: background-color 0.3s ease;
         }
 
         .product button:hover {
-            background-color: #218838;
+            background-color: var(--color-boton-hover);
         }
 
         footer {
-            background-color: #333;
-            color: white;
+            background-color: var(--color-fondo-nav);
+            color: var(--color-texto-principal);
             text-align: center;
             padding: 20px;
+            font-size: 0.95em;
         }
 
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.5);
             padding-top: 60px;
+            animation: fadeIn 0.3s ease forwards;
         }
 
         .modal-content {
             background-color: #fff;
             margin: 5% auto;
-            padding: 20px;
+            padding: 25px 30px;
             width: 70%;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: relative;
+            font-size: 1.1em;
         }
 
         .close {
@@ -156,33 +178,28 @@
             font-size: 28px;
             font-weight: bold;
             position: absolute;
-            top: 10px;
+            top: 15px;
             right: 25px;
+            cursor: pointer;
+            transition: color 0.3s ease;
         }
 
         .close:hover,
         .close:focus {
-            color: black;
+            color: #000;
             text-decoration: none;
-            cursor: pointer;
         }
 
         .steps {
             list-style-type: decimal;
             margin-left: 20px;
-            font-size: 1.1em;
+            padding-left: 10px;
         }
 
-        .steps a {
-            color: #007bff;
-            text-decoration: none;
+        .steps li {
+            margin-bottom: 10px;
         }
 
-        .steps a:hover {
-            text-decoration: underline;
-        }
-
-        /* Estilo para el logo de Mercado Pago y el alias */
         .mercado-pago {
             display: flex;
             align-items: center;
@@ -196,8 +213,28 @@
         }
 
         .mercado-pago p {
+            font-weight: 700;
             font-size: 1.2em;
-            font-weight: bold;
+        }
+
+        a.whatsapp-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #25d366;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
+        }
+
+        a.whatsapp-link:hover {
+            text-decoration: underline;
+            color: #128c4a;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
         }
     </style>
 </head>
@@ -208,7 +245,7 @@
     </header>
 
     <nav>
-        <a href="index.html">Inicio</a>
+        <a href="index.html" class="active">Inicio</a>
         <a href="productos.html">Tienda</a>
         <a href="sobre-nosotros.html">Sobre Nosotros</a>
         <a href="contacto.html">Contacto</a>
@@ -220,25 +257,25 @@
 
     <div class="products">
         <div class="product">
-            <img src="camisetas/meca.jpeg" alt="Camiseta Fiorentina Retro">
+            <img src="camisetas/meca.jpeg" alt="Camiseta Fiorentina Retro Batistuta" />
             <h3>Camiseta Fútbol - Fiorentina Retro - Batistuta</h3>
             <p>Íconica camiseta para un 9 como vos</p>
             <p class="price">ARS$25.000</p>
-            <button>Comprar Ahora</button>
+            <button aria-label="Comprar Camiseta Fiorentina Retro Batistuta">Comprar Ahora</button>
         </div>
         <div class="product">
-            <img src="camisetas/supa.jpeg" alt="Camiseta Manchester United - Garnacho">
+            <img src="camisetas/supa.jpeg" alt="Camiseta Manchester United Garnacho" />
             <h3>Camiseta Fútbol - Manchester United - Garnacho</h3>
             <p>Moderna y elegante.</p>
             <p class="price">ARS$22.000</p>
-            <button>Comprar Ahora</button>
+            <button aria-label="Comprar Camiseta Manchester United Garnacho">Comprar Ahora</button>
         </div>
         <div class="product">
-            <img src="camisetas/pinba.jpeg" alt="Camiseta Manchester United - Cristiano Ronaldo">
+            <img src="camisetas/pinba.jpeg" alt="Camiseta Manchester United Cristiano Ronaldo" />
             <h3>Camiseta Fútbol - Manchester United - Cristiano Ronaldo</h3>
             <p>Clásica e irrepetible.</p>
             <p class="price">ARS$25.000</p>
-            <button>Comprar Ahora</button>
+            <button aria-label="Comprar Camiseta Manchester United Cristiano Ronaldo">Comprar Ahora</button>
         </div>
     </div>
 
@@ -247,11 +284,11 @@
     </footer>
 
     <!-- Modal -->
-    <div id="myModal" class="modal">
+    <div id="myModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>¡Pasos para comprar tu camiseta!</h2>
-            <ol class="steps">
+            <span class="close" role="button" aria-label="Cerrar">&times;</span>
+            <h2 id="modalTitle">¡Pasos para comprar tu camiseta!</h2>
+            <ol class="steps" id="modalDesc">
                 <li>Elegir la camiseta.</li>
                 <li>Elegir el talle.</li>
                 <li>Abonar el dinero en nuestra cuenta.</li>
@@ -260,44 +297,45 @@
                 <li>¡Listo! A los pocos días recibirás tu camiseta.</li>
             </ol>
             <p>Si tienes alguna duda, puedes escribirnos por WhatsApp.</p>
-            <a href="https://wa.me/5493436467953" target="_blank">Contacta por WhatsApp</a>
-            
+            <a class="whatsapp-link" href="https://wa.me/5493436467953" target="_blank" rel="noopener noreferrer">Contacta por WhatsApp</a>
+
             <!-- Logo de Mercado Pago y Alias -->
             <div class="mercado-pago">
-                <img src="camisetas/Mercado Pago.jpg" alt="Mercado Pago Logo">
-                <p><strong>Alias: victoriacamisetas</strong></p>
+                <img src="camisetas/Mercado Pago.jpg" alt="Logo Mercado Pago" />
+                <p><strong>Alias: vic-camisetas</strong></p>
             </div>
         </div>
     </div>
 
     <script>
-        // Obtener el modal
-        var modal = document.getElementById("myModal");
+        // Modal control
+        const modal = document.getElementById("myModal");
+        const btns = document.querySelectorAll(".product button");
+        const span = document.querySelector(".close");
 
-        // Obtener los botones de "Comprar Ahora"
-        var btns = document.querySelectorAll(".product button");
-
-        // Obtener el elemento <span> (que cierra el modal)
-        var span = document.getElementsByClassName("close")[0];
-
-        // Cuando el usuario hace clic en cualquier botón "Comprar Ahora"
-        btns.forEach(function(btn) {
-            btn.addEventListener("click", function() {
-                modal.style.display = "block"; // Mostrar el modal
+        btns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                modal.style.display = "block";
+                // Focus trap could be added here for accessibility
             });
         });
 
-        // Cuando el usuario hace clic en <span> (cerrar el modal)
-        span.onclick = function() {
+        span.addEventListener("click", () => {
             modal.style.display = "none";
-        }
+        });
 
-        // Cuando el usuario hace clic en cualquier parte fuera del modal, cerrarlo
-        window.onclick = function(event) {
-            if (event.target == modal) {
+        window.addEventListener("click", e => {
+            if (e.target === modal) {
                 modal.style.display = "none";
             }
-        }
+        });
+
+        // Close modal on Escape key press
+        window.addEventListener("keydown", e => {
+            if (e.key === "Escape" && modal.style.display === "block") {
+                modal.style.display = "none";
+            }
+        });
     </script>
 </body>
 </html>

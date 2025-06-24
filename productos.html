@@ -67,10 +67,31 @@
             outline: none;
         }
 
+        /* Buscador */
+        .search-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #searchInput {
+            padding: 10px 15px;
+            width: 280px;
+            max-width: 90%;
+            border-radius: 30px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        #searchInput:focus {
+            border-color: #f39c12;
+            outline: none;
+            box-shadow: 0 0 8px #f39c12;
+        }
+
         /* Filtros */
         .filters {
             text-align: center;
-            margin: 25px 0 15px 0;
+            margin: 15px 0 25px 0;
         }
 
         .filters button {
@@ -104,17 +125,6 @@
             flex-wrap: wrap;
             justify-content: space-between;
             gap: 16px;
-        }
-
-        /* Título productos */
-        .products > h2 {
-            width: 100%;
-            text-align: center;
-            color: #f39c12;
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            font-weight: 700;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
 
         /* Cada producto */
@@ -343,6 +353,17 @@
         <a href="contacto.html">Contacto</a>
     </nav>
 
+    <!-- Buscador -->
+    <div class="search-container">
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Buscar camiseta..." 
+          aria-label="Buscar camiseta"
+          onkeyup="searchProducts()"
+        />
+    </div>
+
     <div class="filters">
         <button onclick="filterProducts('retro')">Retro</button>
         <button onclick="filterProducts('actuales')">Actuales</button>
@@ -350,6 +371,7 @@
     </div>
 
     <div class="products">
+        <!-- (Tu lista de productos aquí, el mismo que enviaste) -->
         <div class="product retro">
             <img src="camisetas/1.png" alt="Camiseta Barcelona" />
             <h3>Camiseta Fútbol - Barcelona - Retro - Messi 2009</h3>
@@ -623,7 +645,7 @@
     <button onclick="openModal()">Comprar Ahora</button>
 </div>
 
-        <!-- ... y así sucesivamente hasta el producto 45 -->
+        <!-- ... todos los demás productos ... -->
     </div>
 
     <footer>
@@ -670,6 +692,24 @@
                     }
                 });
             }
+        }
+
+        function searchProducts() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+            
+            products.forEach(product => {
+                const title = product.querySelector('h3').textContent.toLowerCase();
+                const descriptionEl = product.querySelector('p:not(.price)');
+                const description = descriptionEl ? descriptionEl.textContent.toLowerCase() : '';
+                
+                if (title.includes(filter) || description.includes(filter)) {
+                    product.style.display = 'flex';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
         }
 
         function openModal() {

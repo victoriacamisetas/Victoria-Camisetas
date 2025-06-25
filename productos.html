@@ -119,7 +119,7 @@
             box-shadow: 0 0 8px #f39c12;
         }
 
-        /* Contenedor de productos con CSS Grid */
+        /* Contenedor de productos con CSS Grid para 4 columnas */
         .products {
             padding: 20px 15px 40px 15px;
             max-width: 1220px;
@@ -127,6 +127,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 16px;
+            box-sizing: border-box;
         }
 
         /* Título productos */
@@ -372,11 +373,40 @@
         <button onclick="filterProducts('all')">Ver Todas</button>
     </div>
 
-    <!-- Buscador -->
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Buscar camiseta..." oninput="searchProducts()" aria-label="Buscar camisetas" />
     </div>
-<div class="product retro">
+
+    <!-- Contenedor productos que aplica el grid -->
+    <div class="products">
+        <!-- Aquí van todos tus productos -->
+        <div class="product retro">
+            <img src="camisetas/1.png" alt="Camiseta River" />
+            <h3>Camiseta- river- Retro - 2001</h3>
+            <p class="price">$24000</p>
+            <button onclick="openModal()">Comprar Ahora</button>
+        </div>
+        <div class="product retro">
+            <img src="camisetas/2.png" alt="Camiseta Francia 1998" />
+            <h3>Camiseta - Francia 1998</h3>
+            <p class="price">$24000</p>
+            <button onclick="openModal()">Comprar Ahora</button>
+        </div>
+        <div class="product actuales">
+            <img src="camisetas/3.png" alt="Camiseta Argentina" />
+            <h3>Camiseta  - Argentina edicion especial estilo retro</h3>
+            <p class="price">$22000</p>
+            <button onclick="openModal()">Comprar Ahora</button>
+        </div>
+        <!-- sigue con todos los demás productos que ya tienes... -->
+        <!-- Por ejemplo: -->
+        <div class="product actuales">
+            <img src="camisetas/4.png" alt="Camiseta Real Madrid" />
+            <h3>Camiseta  - Real madrid 25/26 alternativa</h3>
+            <p class="price">$22000</p>
+            <button onclick="openModal()">Comprar Ahora</button>
+        </div>
+        div class="product retro">
     <img src="camisetas/1.png" alt="Camiseta River" />
     <h3>Camiseta- river- Retro - 2001</h3>
     <p class="price">$24000</p>
@@ -648,99 +678,8 @@
     <p class="price">$24000</p>
     <button onclick="openModal()">Comprar Ahora</button>
 </div>
-    
-<div class="product actuales">
-    <img src="camisetas/46.png" alt="Camiseta Tigres UANL" />
-    <h3>Camiseta Fútbol - Tigres UANL</h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-        <div class="product actuales">
-    <img src="camisetas/47.png" alt="Camiseta Tigres UANL" />
-    <h3>Camiseta Fútbol - Tigres UANL</h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-        <div class="product otros">
-    <img src="camisetas/48.png" alt="Camiseta Tigres UANL" />
-    <h3>Camiseta Fútbol - Tigres UANL</h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-        <div class="product otros">
-    <img src="camisetas/49.png" alt="Camiseta Tigres UANL" />
-    <h3>Camiseta Fútbol - Tigres UANL</h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-        <div class="product otros">
-    <img src="camisetas/50.png" alt="Camiseta Tigres UANL" />
-    <h3>Camiseta Fútbol - Tigres UANL</h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-        <div class="product otros">
-    <img src="camisetas/51.png" alt="Camiseta Tigres UANL" />
-    <h3>Camiseta Fútbol - Tigres UANL</h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-        <div class="product otros">
-    <img src="camisetas/52.png" alt="Camiseta Tigres UANL" />
-    <h3>Camiseta Fútbol - Tigres UANL</h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-        <div class="product otros">
-    <img src="camisetas/53.png" alt="Camiseta Tigres UANL" />
-    <h3>Camiseta Fútbol - Tigres UANL</h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-        <div class="product otros">
-    <img src="camisetas/54.png" alt="Camiseta Tigres UANL" />
-    <h3>Camiseta Fútbol - Tigres UANL</h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-        <div class="product otros">
-    <img src="camisetas/55.png" alt="Camiseta Tigres UANL" />
-    <h3>Camiseta Fútbol - Tigres UANL</h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-        <div class="product otros">
-    <img src="camisetas/56.png" alt="Camiseta Tigres UANL" />
-    <h3>Camiseta Fútbol - Tigres UANL</h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-        <div class="product otros">
-    <img src="camisetas/57.png" alt="Camiseta Tigres UANL" />
-    <h3>Camiseta Fútbol - Tigres UANL</h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-        <div class="product otros">
-    <img src="camisetas/58.png" alt="Camiseta Tigres UANL" />
-    <h3>Camiseta Fútbol - Tigres UANL</h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-        <div class="product actuales">
-    <img src="camisetas/59.png" alt="Camiseta Tigres UANL" />
-    <h3>Camiseta Fútbol - Tigres UANL</h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-    <div class="product actuales">
-    <img src="camisetas/60.png" alt="Camiseta Tigres UANL" />
-    <h3>Camiseta Fútbol - Tigres UANL</h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-
-        <!-- Sigue con todos tus demás productos... -->
+        <!-- Puedes copiar y pegar todos tus productos aquí dentro -->
+        <!-- ... -->
     </div>
 
     <footer>

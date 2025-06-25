@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Productos - Victoria Camisetas</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles.css" />
     <style>
         /* Fuente y fondo general */
         body {
-            font-family: Arial, sans-serif;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url(camisetas/lol.jpg);
-            background-color: #f4f4f4;
+            background-image: url(camisetas/cesped.jpg);
             background-color: #f9f9f9;
             margin: 0;
             padding: 0;
@@ -25,28 +18,23 @@
 
         /* Header */
         header {
-            background-color: #333;
-            color: white;
-            padding: 20px;
             background-color: #1a1a1a;
             color: #f0f0f0;
-            padding: 25px 20px;
+            padding: 20px 15px;
             text-align: center;
             box-shadow: 0 2px 8px rgba(0,0,0,0.5);
             user-select: none;
         }
 
         header h1 {
-            font-size: 2.5em;
-            font-size: 2.8rem;
+            font-size: 2.4rem;
             margin: 0;
-            letter-spacing: 2px;
+            letter-spacing: 1.8px;
         }
 
         header p {
-            font-size: 1.1em;
-            font-size: 1.15rem;
-            margin-top: 8px;
+            font-size: 1rem;
+            margin-top: 6px;
             font-weight: 500;
             color: #d6d6d6;
         }
@@ -55,26 +43,22 @@
         nav {
             display: flex;
             justify-content: center;
-            background-color: #444;
             background-color: #2d2d2d;
             box-shadow: inset 0 -3px 5px rgba(255,255,255,0.05);
+            flex-wrap: wrap;
         }
 
         nav a {
-            color: white;
-            padding: 14px 20px;
             color: #eee;
-            padding: 16px 28px;
+            padding: 14px 20px;
             text-decoration: none;
             text-transform: uppercase;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             transition: background-color 0.3s ease, color 0.3s ease;
             border-bottom: 3px solid transparent;
         }
 
-        nav a:hover {
-            background-color: #555;
         nav a:hover,
         nav a:focus {
             background-color: #3a3a3a;
@@ -86,32 +70,24 @@
         /* Filtros */
         .filters {
             text-align: center;
-            margin: 20px 0;
-            margin: 30px 0 10px 0;
+            margin: 25px 0 15px 0;
         }
 
         .filters button {
-            padding: 10px 20px;
+            padding: 10px 22px;
             margin: 0 10px;
-            background-color: #2c3e50;
-            color: white;
-            padding: 12px 28px;
-            margin: 0 12px;
             background-color: #34495e;
             color: #fff;
             border: none;
-            border-radius: 5px;
             border-radius: 30px;
             cursor: pointer;
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 600;
-            box-shadow: 0 4px 12px rgba(52,73,94,0.3);
+            box-shadow: 0 3px 8px rgba(52,73,94,0.3);
             transition: background-color 0.25s ease;
             user-select: none;
         }
 
-        .filters button:hover {
-            background-color: #34495e;
         .filters button:hover,
         .filters button:focus {
             background-color: #f39c12;
@@ -119,19 +95,38 @@
             outline: none;
         }
 
-        /* Contenedor de productos */
+        /* Buscador */
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto 25px auto;
+            text-align: center;
+        }
+
+        .search-container input {
+            width: 90%;
+            max-width: 400px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border-radius: 30px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            transition: border-color 0.3s ease;
+        }
+
+        .search-container input:focus {
+            border-color: #f39c12;
+            outline: none;
+            box-shadow: 0 0 8px #f39c12;
+        }
+
+        /* Contenedor de productos con CSS Grid */
         .products {
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 1200px;
-            padding: 25px 20px;
+            padding: 20px 15px 40px 15px;
             max-width: 1220px;
-            margin: 0 auto 50px auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            justify-content: space-around;
-            gap: 20px;
+            margin: 0 auto 40px auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
         }
 
         /* Título productos */
@@ -139,111 +134,90 @@
             width: 100%;
             text-align: center;
             color: #f39c12;
-            font-size: 2rem;
-            margin-bottom: 35px;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
             font-weight: 700;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
 
         /* Cada producto */
         .product {
-            background-color: white;
             background-color: #fff;
-            border-radius: 12px;
+            border-radius: 10px;
             border: 1px solid #ddd;
-            padding: 15px;
-            margin: 10px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.07);
-            width: 30%;
-            padding: 18px 15px 25px 15px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.06);
+            padding: 12px 10px 18px 10px;
             text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             user-select: none;
+            box-sizing: border-box;
         }
 
         .product:hover,
         .product:focus-within {
-            transform: translateY(-8px);
-            box-shadow: 0 14px 28px rgba(0,0,0,0.18);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
             border-color: #f39c12;
             outline: none;
         }
 
         /* Imagen */
         .product img {
-            width: 100%;
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-            border-radius: 12px;
-            margin-bottom: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
             object-fit: cover;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
             user-select: none;
         }
 
         /* Título producto */
         .product h3 {
-            color: #333;
-            margin: 10px 0;
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: #222;
-            margin: 10px 0 8px 0;
+            margin: 8px 0 6px 0;
             font-weight: 700;
             line-height: 1.3;
         }
 
-        .product p {
-            color: #777;
         /* Descripción */
         .product p:not(.price) {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             color: #666;
-            margin: 4px 0 14px 0;
-            min-height: 38px;
+            margin: 3px 0 10px 0;
+            min-height: 34px;
             font-style: italic;
             user-select: text;
         }
 
         /* Precio */
         .product .price {
-            font-size: 1.5em;
-            color: #b12704;
-            font-weight: bold;
-            margin: 10px 0;
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: #e74c3c;
-            margin-bottom: 18px;
+            margin-bottom: 14px;
             letter-spacing: 0.02em;
             user-select: text;
         }
 
         /* Botón comprar */
         .product button {
-            padding: 10px 20px;
-            background-color: #2c3e50;
             background-color: #34495e;
             color: white;
-            padding: 12px 0;
-            font-size: 1.1rem;
+            padding: 10px 0;
+            font-size: 1rem;
             font-weight: 700;
             border: none;
-            border-radius: 5px;
             border-radius: 30px;
             cursor: pointer;
-            font-size: 1.1em;
             transition: background-color 0.3s ease;
             user-select: none;
         }
 
-        .product button:hover {
-            background-color: #34495e;
         .product button:hover,
         .product button:focus {
             background-color: #f39c12;
@@ -253,49 +227,31 @@
 
         /* Pie de página */
         footer {
-            background-color: #333;
-            color: white;
-            padding: 20px;
             background-color: #1a1a1a;
             color: #ccc;
-            padding: 22px 10px;
+            padding: 18px 10px;
             text-align: center;
-            font-size: 1rem;
+            font-size: 0.95rem;
             user-select: none;
             border-top: 1px solid #333;
         }
 
-        footer p {
-            margin: 0;
-            font-size: 1em;
-        }
-
-        /* Estilos para el modal */
         /* Modal */
         .modal {
             display: none;
             position: fixed;
-            z-index: 1;
             z-index: 2000;
             left: 0;
             top: 0;
-            width: 100%;
-            height: 100%;
             width: 100vw;
             height: 100vh;
             overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-            padding-top: 60px;
             background-color: rgba(0, 0, 0, 0.6);
             padding-top: 70px;
             user-select: none;
         }
 
         .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
             background-color: #fff;
             margin: auto;
             padding: 30px 40px;
@@ -304,10 +260,8 @@
             max-width: 900px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             display: flex;
-            align-items: center;
             align-items: flex-start;
             justify-content: space-between;
-            border-radius: 8px;
             gap: 40px;
             user-select: text;
             position: relative;
@@ -315,7 +269,6 @@
 
         .modal-content ol {
             list-style-type: decimal;
-            padding-left: 20px;
             padding-left: 24px;
             color: #444;
             font-size: 1.1rem;
@@ -337,8 +290,6 @@
         }
 
         .payment-logo img {
-            width: 120px;
-            margin-left: 20px;
             width: 140px;
             border-radius: 12px;
             box-shadow: 0 6px 12px rgba(0,0,0,0.1);
@@ -376,8 +327,8 @@
 
         /* Responsive */
         @media (max-width: 1100px) {
-            .product {
-                width: 45%;
+            .products {
+                grid-template-columns: repeat(2, 1fr); /* 2 columnas */
             }
             .modal-content {
                 flex-direction: column;
@@ -392,327 +343,406 @@
         }
 
         @media (max-width: 650px) {
-            .product {
-                width: 90%;
-            }
-            nav {
-                flex-wrap: wrap;
+            .products {
+                grid-template-columns: 1fr; /* 1 columna */
             }
             nav a {
-                padding: 12px 14px;
+                padding: 12px 10px;
                 font-size: 0.85rem;
             }
         }
     </style>
 </head>
-@@ -193,342 +358,201 @@ <h1>👑⚽Victoria Camisetas⚽👑</h1>
+<body>
+    <header>
+        <h1>👑⚽Victoria Camisetas⚽👑</h1>
+        <p>¡Las mejores camisetas de fútbol retro y actuales solamente para vos!</p>
+    </header>
 
-    <div class="products" id="product-container">
-        <h2><p style="color: orange;"> Productos Disponibles </p></h2>
-        
-        <!-- Fila 1 -->
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="productos.html">Productos</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
 
-        <!-- Productos (completos, todos) -->
+    <div class="filters">
+        <button onclick="filterProducts('retro')">Retro</button>
+        <button onclick="filterProducts('actuales')">Actuales</button>
+        <button onclick="filterProducts('otros')">Otros</button>
+        <button onclick="filterProducts('all')">Ver Todas</button>
+    </div>
+
+    <!-- Buscador -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Buscar camiseta..." oninput="searchProducts()" aria-label="Buscar camisetas" />
+    </div>
+
+    <div class="products" id="productsContainer">
+        <!-- Aquí ponés todos los productos que ya tenías, por ejemplo: -->
         <div class="product retro">
-            <img src="camisetas/messi 2009.jpg" alt="Camiseta Barcelona">
-            <img src="camisetas/messi 2009.jpg" alt="Camiseta Barcelona" />
+            <img src="camisetas/1.png" alt="Camiseta Barcelona" />
             <h3>Camiseta Fútbol - Barcelona - Retro - Messi 2009</h3>
             <p class="price">$25000</p>
             <button onclick="openModal()">Comprar Ahora</button>
         </div>
         <div class="product actuales">
-            <img src="camisetas/palmeiras.jpg" alt="Camiseta Real Madrid">
-            <img src="camisetas/palmeiras.jpg" alt="Camiseta Palmeiras" />
+            <img src="camisetas/2.png" alt="Camiseta Palmeiras" />
             <h3>Camiseta Fútbol - Palmeiras</h3>
             <p class="price">$22000</p>
             <button onclick="openModal()">Comprar Ahora</button>
         </div>
         <div class="product actuales">
-            <img src="camisetas/garnacho negra.jpg" alt="Camiseta PSG">
-            <img src="camisetas/garnacho negra.jpg" alt="Camiseta Manchester United Negra" />
+            <img src="camisetas/3.png" alt="Camiseta Manchester United Negra" />
             <h3>Camiseta Fútbol - Manchester United Negra</h3>
             <p class="price">$22000</p>
             <button onclick="openModal()">Comprar Ahora</button>
         </div>
-
-        <!-- Fila 2 -->
         <div class="product actuales">
-            <img src="camisetas/juventus.jpg" alt="Camiseta Juventus">
-            <img src="camisetas/juventus.jpg" alt="Camiseta Juventus" />
-            <h3>Camiseta Fútbol - Juventus</h3>
-            <p class="price">$22000</p>
-            <button onclick="openModal()">Comprar Ahora</button>
-        </div>
-        <div class="product actuales">
-            <img src="camisetas/peniarol.jpg" alt="Camiseta Manchester United">
-            <img src="camisetas/peniarol.jpg" alt="Camiseta Peñarol" />
-            <h3>Camiseta Fútbol - Peñarol</h3>
-            <p class="price">$22000</p>
-            <button onclick="openModal()">Comprar Ahora</button>
-        </div>
-        <div class="product actuales">
-            <img src="camisetas/neymar.jpg" alt="Camiseta Bayern Múnich">
-            <img src="camisetas/neymar.jpg" alt="Camiseta Al Hilal Neymar Jr" />
-            <h3>Camiseta Fútbol - Al Hilal Neymar Jr</h3>
-            <p class="price">$22000</p>
-            <button onclick="openModal()">Comprar Ahora</button>
-        </div>
-
-        <!-- Fila 3 -->
-        <div class="product retro">
-            <img src="camisetas/ronaldinho 89.jpg" alt="Camiseta Chelsea">
-            <img src="camisetas/ronaldinho 89.jpg" alt="Camiseta Milan Retro Ronaldinho" />
-            <h3>Camiseta Fútbol - Milan Retro Ronaldinho</h3>
-            <p class="price">$25000</p>
-            <button onclick="openModal()">Comprar Ahora</button>
-        </div>
-        <div class="product actuales">
-            <img src="camisetas/macallister.jpg" alt="Camiseta Liverpool">
-            <img src="camisetas/macallister.jpg" alt="Camiseta Liverpool" />
-            <h3>Camiseta Fútbol - Liverpool</h3>
-            <p>Camisa roja, pasión pura.</p>
-            <p class="price">$22500</p>
-            <button onclick="openModal()">Comprar Ahora</button>
-        </div>
-        <div class="product retro">
-            <img src="camisetas/arsenal.jpg" alt="Camiseta Arsenal">
-            <img src="camisetas/arsenal.jpg" alt="Camiseta Arsenal Retro Henry" />
-            <h3>Camiseta Fútbol - Arsenal Retro - Henry Roja</h3>
-            <p>Siempre competitivos.</p>
-            <p class="price">$25000</p>
-            <button onclick="openModal()">Comprar Ahora</button>
-        </div>
-
-        <!-- Fila 4: Dibu Martínez -->
-        <div class="product actuales">
-            <img src="camisetas/dibu.jpg" alt="Camiseta Dibu Martínez">
-            <img src="camisetas/dibu.jpg" alt="Camiseta Dibu Martínez" />
-            <h3>Camiseta Fútbol - Dibu Martínez (Argentina)</h3>
-            <p class="price">$22500</p>
-            <button onclick="openModal()">Comprar Ahora</button>
-        </div>
-
-        <!-- Nuevas camisetas (Fila 5) -->
-        <div class="product actuales">
-            <img src="camisetas/boca23.jpg" alt="Camiseta Boca Juniors">
-            <img src="camisetas/boca23.jpg" alt="Camiseta Boca Juniors" />
-            <h3>Camiseta Fútbol - Boca Juniors</h3>
-            <p class="price">$22500</p>
-            <button onclick="openModal()">Comprar Ahora</button>
-        </div>
-        <div class="product actuales">
-            <img src="camisetas/real madrid.jpg" alt="Camiseta Real Madrid">
-            <img src="camisetas/real madrid.jpg" alt="Camiseta Real Madrid" />
-            <h3>Camiseta Fútbol - Real Madrid</h3>
-            <p class="price">$22500</p>
-            <button onclick="openModal()">Comprar Ahora</button>
-        </div>
-        <div class="product actuales">
-            <img src="camisetas/yamil.jpg" alt="Camiseta Chelsea">
-            <img src="camisetas/yamil.jpg" alt="Camiseta Selección España Lamine Yamal" />
-            <h3>Camiseta Fútbol - Selección España - Lamine Yamal</h3>
-            <p class="price">$22500</p>
-            <button onclick="openModal()">Comprar Ahora</button>
-        </div>
-
-        <!-- Fila 6 -->
-        <div class="product actuales">
-            <img src="camisetas/racing.jpg" alt="Camiseta Barcelona 2020">
-            <img src="camisetas/racing.jpg" alt="Camiseta Racing Alternativa" />
-            <h3>Camiseta Fútbol - Racing Alternativa</h3>
-            <p class="price">$22500</p>
-            <button onclick="openModal()">Comprar Ahora</button>
-        </div>
-        <div class="product retro">
-            <img src="camisetas/kakin12.jfif" alt="Camiseta Milan">
-            <img src="camisetas/kakin12.jfif" alt="Camiseta Milan Retro Kaká" />
-            <h3>Camiseta Fútbol - Milan Retro - Kaká</h3>
-            <p class="price">$22500</p>
-            <button onclick="openModal()">Comprar Ahora</button>
-        </div>
-        <div class="product actuales">
-            <img src="camisetas/CR7AL.JPG" alt="Camiseta México">
-            <img src="camisetas/CR7AL.JPG" alt="Camiseta AL Nassr Cristiano Ronaldo" />
-            <h3>Camiseta Fútbol - AL Nassr - Cristiano Ronaldo</h3>
-            <p class="price">$22500</p>
-            <button onclick="openModal()">Comprar Ahora</button>
-        </div>
-
-        <!-- Fila 7 -->
-        <div class="product retro">
-            <img src="camisetas/maradona.jpg" alt="Camiseta Argentina">
-            <img src="camisetas/maradona.jpg" alt="Camiseta Argentina Retro Maradona" />
-            <h3>Camiseta Fútbol - Argentina Retro - Maradona</h3>
-            <p class="price">$23000</p>
-            <button onclick="openModal()">Comprar Ahora</button>
-        </div>
-        <div class="product actuales">
-            <img src="camisetas/Julian.jpg" alt="Camiseta Uruguay">
-            <img src="camisetas/Julian.jpg" alt="Camiseta Atlético de Madrid Julián Álvarez" />
-            <h3>Camiseta Fútbol - Atlético de Madrid - Julián Álvarez</h3>
-            <p class="price">$22500</p>
-            <button onclick="openModal()">Comprar Ahora</button>
-        </div>
-        <div class="product retro">
-            <img src="camisetas/santos10.jpg" alt="Camiseta Santos FC">
-            <img src="camisetas/santos10.jpg" alt="Camiseta Santos FC Retro Neymar Jr" />
-            <h3>Camiseta Fútbol - Santos FC Retro - Neymar Jr</h3>
-            <p class="price">$22500</p>
-            <button onclick="openModal()">Comprar Ahora</button>
-        </div>
-
-        <!-- Fila 8 -->
-        <div class="product actuales">
-            <img src="camisetas/italianis.jpg" alt="Camiseta PSG">
-            <h3>Camiseta Fútbol - Selección Italia</h3>
-            <img src="camisetas/italianis.jpg" alt="Camiseta PSG" />
-            <h3>Camiseta Fútbol - PSG</h3>
-            <p class="price">$22500</p>
-            <button onclick="openModal()">Comprar Ahora</button>
-        </div>
-        <!-- Fila 9: Nuevas camisetas -->
+    <img src="camisetas/4.png" alt="Camiseta Juventus" />
+    <h3>Camiseta Fútbol - Juventus</h3>
+    <p class="price">$22000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/5.png" alt="Camiseta Peñarol" />
+    <h3>Camiseta Fútbol - Peñarol</h3>
+    <p class="price">$22000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/6.png" alt="Camiseta Al Hilal Neymar Jr" />
+    <h3>Camiseta Fútbol - Al Hilal Neymar Jr</h3>
+    <p class="price">$22000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
 <div class="product retro">
-    <img src="camisetas/henry 14.jpg" alt="Camiseta Chelsea 2023">
-    <h3>Camiseta Fútbol - Arsenal - Henry Bordo</h3>
+    <img src="camisetas/7.png" alt="Camiseta Milan Retro Ronaldinho" />
+    <h3>Camiseta Fútbol - Milan Retro Ronaldinho</h3>
     <p class="price">$25000</p>
     <button onclick="openModal()">Comprar Ahora</button>
 </div>
 <div class="product actuales">
-    <img src="camisetas/goku.jpg" alt="Camiseta Manchester City 2023">
-    <h3>Camiseta Fútbol - Japón - Edición Dragon Ball -</h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-<div class="product actuales">
-    <img src="camisetas/nacional noma.jpg" alt="Camiseta PSG 2023">
-    <h3>Camiseta Fútbol - Nacional</h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-<div class="product actuales">
-    <img src="camisetas/urugod.jpg" alt="Camiseta Chelsea 2023">
-    <h3>Camiseta Fútbol - Uruguay - Darwin Nuñez </h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-<div class="product actuales">
-    <img src="camisetas/gremio.jpg" alt="Camiseta Manchester City 2023">
-    <h3>Camiseta Fútbol - Gremio</h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-<div class="product actuales">
-    <img src="camisetas/peniarol negra.jpg" alt="Camiseta PSG 2023">
-    <h3>Camiseta Fútbol - Peñarol Negra </h3>
+    <img src="camisetas/8.png" alt="Camiseta Liverpool" />
+    <h3>Camiseta Fútbol - Liverpool</h3>
     <p class="price">$22500</p>
     <button onclick="openModal()">Comprar Ahora</button>
 </div>
 <div class="product retro">
-    <img src="camisetas/santos 11.jpg" alt="Camiseta PSG 2023">
-    <h3>Camiseta Fútbol - Santos - Neymar </h3>
+    <img src="camisetas/9.png" alt="Camiseta Arsenal Retro Henry" />
+    <h3>Camiseta Fútbol - Arsenal Retro - Henry Roja</h3>
     <p class="price">$25000</p>
     <button onclick="openModal()">Comprar Ahora</button>
 </div>
 <div class="product actuales">
-    <img src="camisetas/serriete.jpg" alt="Camiseta PSG 2023">
-    <h3>Camiseta Fútbol - Portugal - Cristiano Ronaldo </h3>
+    <img src="camisetas/10.png" alt="Camiseta Dibu Martínez" />
+    <h3>Camiseta Fútbol - Dibu Martínez (Argentina)</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/11.png" alt="Camiseta Boca Juniors" />
+    <h3>Camiseta Fútbol - Boca Juniors</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/12.png" alt="Camiseta Real Madrid" />
+    <h3>Camiseta Fútbol - Real Madrid</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/13.png" alt="Camiseta Selección España Lamine Yamal" />
+    <h3>Camiseta Fútbol - Selección España - Lamine Yamal</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/14.png" alt="Camiseta Racing Alternativa" />
+    <h3>Camiseta Fútbol - Racing Alternativa</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product retro">
+    <img src="camisetas/15.png" alt="Camiseta Milan Retro Kaká" />
+    <h3>Camiseta Fútbol - Milan Retro - Kaká</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/16.png" alt="Camiseta AL Nassr Cristiano Ronaldo" />
+    <h3>Camiseta Fútbol - AL Nassr - Cristiano Ronaldo</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product retro">
+    <img src="camisetas/17.png" alt="Camiseta Argentina Retro Maradona" />
+    <h3>Camiseta Fútbol - Argentina Retro - Maradona</h3>
+    <p class="price">$23000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/18.png" alt="Camiseta Atlético de Madrid Julián Álvarez" />
+    <h3>Camiseta Fútbol - Atlético de Madrid - Julián Álvarez</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product retro">
+    <img src="camisetas/19.png" alt="Camiseta Santos FC Retro Neymar Jr" />
+    <h3>Camiseta Fútbol - Santos FC Retro - Neymar Jr</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/20.png" alt="Camiseta PSG" />
+    <h3>Camiseta Fútbol - PSG</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/camisetas100.jpeg" alt="Camiseta Inter Miami Messi" />
+    <h3>Camiseta Fútbol - Inter Miami - Messi</h3>
+    <p class="price">$23000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product retro">
+    <img src="camisetas/22.png" alt="Camiseta Francia 1998 Zidane" />
+    <h3>Camiseta Fútbol - Francia 1998 - Zidane</h3>
+    <p class="price">$24000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/23.png" alt="Camiseta Brasil 2024" />
+    <h3>Camiseta Fútbol - Brasil 2024</h3>
+    <p class="price">$23000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product retro">
+    <img src="camisetas/24.png" alt="Camiseta Holanda 1988" />
+    <h3>Camiseta Fútbol - Holanda Retro 1988</h3>
+    <p class="price">$24000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/25.png" alt="Camiseta Argentina 2024" />
+    <h3>Camiseta Fútbol - Argentina 2024</h3>
+    <p class="price">$23500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product retro">
+    <img src="camisetas/26.png" alt="Camiseta Boca Juniors 2007" />
+    <h3>Camiseta Fútbol - Boca Juniors Retro 2007</h3>
+    <p class="price">$24500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/27.png" alt="Camiseta River Plate 2024" />
+    <h3>Camiseta Fútbol - River Plate 2024</h3>
+    <p class="price">$23500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product retro">
+    <img src="camisetas/28.png" alt="Camiseta Alemania 1990" />
+    <h3>Camiseta Fútbol - Alemania Retro 1990</h3>
+    <p class="price">$24000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/29.png" alt="Camiseta Chelsea Enzo Fernández" />
+    <h3>Camiseta Fútbol - Chelsea - Enzo Fernández</h3>
+    <p class="price">$23500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/30.png" alt="Camiseta Uruguay 2024" />
+    <h3>Camiseta Fútbol - Uruguay 2024</h3>
+    <p class="price">$23000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product retro">
+    <img src="camisetas/31.png" alt="Camiseta Brasil 2002" />
+    <h3>Camiseta Fútbol - Brasil Retro 2002 - Ronaldo</h3>
+    <p class="price">$25000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/32.png" alt="Camiseta PSG Mbappé" />
+    <h3>Camiseta Fútbol - PSG - Mbappé</h3>
+    <p class="price">$23000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product retro">
+    <img src="camisetas/33.png" alt="Camiseta Independiente Retro" />
+    <h3>Camiseta Fútbol - Independiente Retro</h3>
+    <p class="price">$24000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/34.png" alt="Camiseta Manchester City Haaland" />
+    <h3>Camiseta Fútbol - Manchester City - Haaland</h3>
+    <p class="price">$23500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product retro">
+    <img src="camisetas/35.png" alt="Camiseta River Plate 1996" />
+    <h3>Camiseta Fútbol - River Plate Retro 1996</h3>
+    <p class="price">$24500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/36.png" alt="Camiseta Ecuador 2024" />
+    <h3>Camiseta Fútbol - Ecuador 2024</h3>
+    <p class="price">$23000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/37.png" alt="Camiseta Newell's Old Boys" />
+    <h3>Camiseta Fútbol - Newell's Old Boys</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product retro">
+    <img src="camisetas/38.png" alt="Camiseta AC Milan 2007" />
+    <h3>Camiseta Fútbol - Milan Retro 2007</h3>
+    <p class="price">$24000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/39.png" alt="Camiseta Selección Colombia 2024" />
+    <h3>Camiseta Fútbol - Colombia 2024</h3>
+    <p class="price">$23000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/40.png" alt="Camiseta Vélez Sarsfield" />
+    <h3>Camiseta Fútbol - Vélez Sarsfield</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product retro">
+    <img src="camisetas/41.png" alt="Camiseta Lazio Retro" />
+    <h3>Camiseta Fútbol - Lazio Retro</h3>
+    <p class="price">$24000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/42.png" alt="Camiseta Selección México 2024" />
+    <h3>Camiseta Fútbol - México 2024</h3>
+    <p class="price">$23000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/43.png" alt="Camiseta Rosario Central" />
+    <h3>Camiseta Fútbol - Rosario Central</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product retro">
+    <img src="camisetas/44.png" alt="Camiseta Paraguay 2010" />
+    <h3>Camiseta Fútbol - Paraguay Retro 2010</h3>
+    <p class="price">$24000</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/45.png" alt="Camiseta Tigres UANL" />
+    <h3>Camiseta Fútbol - Tigres UANL</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+<div class="product actuales">
+    <img src="camisetas/46.png" alt="Camiseta Tigres UANL" />
+    <h3>Camiseta Fútbol - Tigres UANL</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+        <div class="product actuales">
+    <img src="camisetas/47.png" alt="Camiseta Tigres UANL" />
+    <h3>Camiseta Fútbol - Tigres UANL</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+        <div class="product otros">
+    <img src="camisetas/48.png" alt="Camiseta Tigres UANL" />
+    <h3>Camiseta Fútbol - Tigres UANL</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+        <div class="product otros">
+    <img src="camisetas/49.png" alt="Camiseta Tigres UANL" />
+    <h3>Camiseta Fútbol - Tigres UANL</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+        <div class="product otros">
+    <img src="camisetas/50.png" alt="Camiseta Tigres UANL" />
+    <h3>Camiseta Fútbol - Tigres UANL</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+        <div class="product otros">
+    <img src="camisetas/51.png" alt="Camiseta Tigres UANL" />
+    <h3>Camiseta Fútbol - Tigres UANL</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+        <div class="product otros">
+    <img src="camisetas/52.png" alt="Camiseta Tigres UANL" />
+    <h3>Camiseta Fútbol - Tigres UANL</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+        <div class="product otros">
+    <img src="camisetas/53.png" alt="Camiseta Tigres UANL" />
+    <h3>Camiseta Fútbol - Tigres UANL</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+        <div class="product otros">
+    <img src="camisetas/54.png" alt="Camiseta Tigres UANL" />
+    <h3>Camiseta Fútbol - Tigres UANL</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+        <div class="product otros">
+    <img src="camisetas/55.png" alt="Camiseta Tigres UANL" />
+    <h3>Camiseta Fútbol - Tigres UANL</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+        <div class="product otros">
+    <img src="camisetas/56.png" alt="Camiseta Tigres UANL" />
+    <h3>Camiseta Fútbol - Tigres UANL</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+        <div class="product otros">
+    <img src="camisetas/57.png" alt="Camiseta Tigres UANL" />
+    <h3>Camiseta Fútbol - Tigres UANL</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+        <div class="product otros">
+    <img src="camisetas/58.png" alt="Camiseta Tigres UANL" />
+    <h3>Camiseta Fútbol - Tigres UANL</h3>
+    <p class="price">$22500</p>
+    <button onclick="openModal()">Comprar Ahora</button>
+</div>
+        <div class="product actuales">
+    <img src="camisetas/59.png" alt="Camiseta Tigres UANL" />
+    <h3>Camiseta Fútbol - Tigres UANL</h3>
     <p class="price">$22500</p>
     <button onclick="openModal()">Comprar Ahora</button>
 </div>
     <div class="product actuales">
-    <img src="camisetas/cerresiete.jpg" alt="Camiseta PSG 2023">
-    <h3>Camiseta Fútbol - Al Nassr - Cristiano Ronaldo </h3>
+    <img src="camisetas/60.png" alt="Camiseta Tigres UANL" />
+    <h3>Camiseta Fútbol - Tigres UANL</h3>
     <p class="price">$22500</p>
     <button onclick="openModal()">Comprar Ahora</button>
 </div>
-<div class="product retro">
-    <img src="camisetas/messi arg debut.jpg" alt="Camiseta PSG 2023">
-    <h3>Camiseta Fútbol - Argentina - Messi 2006 </h3>
-    <p class="price">$25000</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-<div class="product actuales">
-    <img src="camisetas/dybalina.jpg" alt="Camiseta PSG 2023">
-    <h3>Camiseta Fútbol - Roma - Dybala </h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-<div class="product retro">
-    <img src="camisetas/ronaldino brasil.jpg" alt="Camiseta PSG 2023">
-    <h3>Camiseta Fútbol - Brasil - Ronaldinho </h3>
-    <p class="price">$25000</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-<div class="product retro">
-    <img src="camisetas/messi 20150.jpg" alt="Camiseta PSG 2023">
-    <h3>Camiseta Fútbol - Barcelona - Messi 2015 </h3>
-    <p class="price">$25000</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-<div class="product actuales">
-    <img src="camisetas/afa aniversario 2.jpg" alt="Camiseta PSG 2023">
-    <h3>Camiseta Fútbol - Argentina - Especial </h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-<div class="product retro">
-    <img src="camisetas/maradona34.jpg" alt="Camiseta PSG 2023">
-    <h3>Camiseta Fútbol - Argentina - Maradona 1994 </h3>
-    <p class="price">$25000</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-<div class="product actuales">
-    <img src="camisetas/tigrearda.jpg" alt="Camiseta PSG 2023">
-    <h3>Camiseta Fútbol - Tigre </h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-<div class="product actuales">
-    <img src="camisetas/aleman blanco.jpg" alt="Camiseta PSG 2023">
-    <h3>Camiseta Fútbol - Alemania - Titular </h3>
-    <p class="price">$22500</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-<div class="product actuales">
-    <img src="camisetas/zizi.jpeg" alt="Camiseta PSG 2023">
-    <h3>Camiseta Fútbol - Francia - Zidane </h3>
-    <p class="price">$25000</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
 
-<div class="product retro">
-    <img src="camisetas/piti.jpeg" alt="Camiseta PSG 2023">
-    <h3>Camiseta Fútbol - River - Gonzalo "Pity" Martinez </h3>
-    <p class="price">$25000</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-
-<div class="product retro">
-    <img src="camisetas/kuka.jpeg" alt="Camiseta PSG 2023">
-    <h3>Camiseta Fútbol - Milan - Kaká Suplente </h3>
-    <p class="price">$25000</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-
-<div class="product retro">
-    <img src="camisetas/bokita.jpeg" alt="Camiseta PSG 2023">
-    <h3>Camiseta Fútbol - Boca - Retro </h3>
-    <p class="price">$25000</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-
-<div class="product retro">
-    <img src="camisetas/ney.jpeg" alt="Camiseta PSG 2023">
-    <h3>Camiseta Fútbol - Neymar - Santos Retro Suplente </h3>
-    <p class="price">$25000</p>
-    <button onclick="openModal()">Comprar Ahora</button>
-</div>
-
-
+        <!-- Sigue con todos tus demás productos... -->
     </div>
 
-    <!-- Modal -->
-    <div id="myModal" class="modal">
     <footer>
         <p>© 2025 Victoria Camisetas - Todos los derechos reservados</p>
     </footer>
@@ -720,57 +750,32 @@
     <!-- Modal Comprar -->
     <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDesc">
         <div class="modal-content">
-            <div class="steps">
-                <h3>Pasos para comprar:</h3>
-                <ol>
-                    <li>Elegir la camiseta</li>
-                    <li>Elegir el talle</li>
-                    <li>Abonar el dinero en nuestra cuenta</li>
-                    <li>Mandar comprobante por WhatsApp para verificar que esté todo correcto</li>
-                    <li>Mandarnos tus datos: Nombre, dirección, etc.</li>
-                    <li>¡Listo! A los pocos días recibirás tu camiseta.</li>
             <button aria-label="Cerrar modal" onclick="closeModal()">×</button>
             <div>
                 <h2 id="modalTitle">Formas de Pago</h2>
                 <ol id="modalDesc">
-                    <li>Realizamos entregas por OCA o por correo a todo el país.</li>
-                    <li>Aceptamos Mercado Pago y transferencia bancaria.</li>
-                    <li>Pagá en hasta 12 cuotas sin interés con Mercado Pago.</li>
-                    <li>Al confirmar, te enviamos un WhatsApp para coordinar el envío.</li>
-                    <li>Los precios incluyen IVA y están en pesos argentinos.</li>
+                    <li>Elegir la camiseta.</li>
+                    <li>Elegir el talle.</li>
+                    <li>Contactarte con nosotros por Whatsapp.</li>
+                    <li>Comprar la camiseta y mandarnos el comprobante para verificar que esté todo correcto.</li>
+                    <li>Mandarnos tus datos: Nombre, dirección, etc.</li>
+                    <li>¡Listo! A los pocos días recibirás tu camiseta.</li>
                 </ol>
+                <p>Si tienes alguna duda, puedes escribirnos por WhatsApp.</p>
+                <a class="whatsapp-link" href="https://wa.me/5493436467953" target="_blank" rel="noopener noreferrer">Contacta por WhatsApp</a>
+
+                <!-- Logo de Mercado Pago y Alias -->
+                <div class="payment-logo">
+                    <img src="camisetas/Mercado Pago.jpg" alt="Logo Mercado Pago" />
+                    <p><strong>Alias: vic-camisetas</strong></p>
+                </div>
             </div>
-            <div class="payment-logo">
-                <img src="camisetas/Mercado Pago.jpg" alt="Mercado Pago">
-                <p>Alias: <strong>victoriacamisetas</strong></p>
-                <p>Pagá como prefieras</p>
-                <img src="logos/mercado-pago.png" alt="Logo Mercado Pago" />
-            </div>
-            <button onclick="closeModal()">Cerrar</button>
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2025 Victoria Camisetas | Todos los derechos reservados.</p>
-    </footer>
-
     <script>
-        // Función para filtrar las camisetas
-        function filterProducts(filter) {
         function filterProducts(category) {
             const products = document.querySelectorAll('.product');
-            products.forEach(product => {
-                if (filter === 'all') {
-                    product.style.display = 'block';
-                } else if (product.classList.contains(filter)) {
-                    product.style.display = 'block';
-                } else {
-                    product.style.display = 'none';
-                }
-            });
-        }
-
-        // Función para abrir el modal
             if(category === 'all') {
                 products.forEach(p => p.style.display = 'flex');
             } else {
@@ -782,29 +787,39 @@
                     }
                 });
             }
+            // Limpiar búsqueda al filtrar
+            document.getElementById('searchInput').value = '';
+        }
+
+        function searchProducts() {
+            const searchValue = document.getElementById('searchInput').value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+            products.forEach(product => {
+                const title = product.querySelector('h3').textContent.toLowerCase();
+                if (title.includes(searchValue)) {
+                    product.style.display = 'flex';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
         }
 
         function openModal() {
-            document.getElementById("myModal").style.display = "block";
             const modal = document.getElementById('modal');
             modal.style.display = 'block';
             modal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden'; // Evita scroll de fondo
         }
 
-        // Función para cerrar el modal
         function closeModal() {
-            document.getElementById("myModal").style.display = "none";
             const modal = document.getElementById('modal');
             modal.style.display = 'none';
             modal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = 'auto';
         }
 
-        // Cerrar el modal si se hace clic fuera del contenido
         // Cerrar modal al clic fuera del contenido
         window.onclick = function(event) {
-            if (event.target == document.getElementById("myModal")) {
             const modal = document.getElementById('modal');
             if (event.target === modal) {
                 closeModal();
@@ -813,7 +828,7 @@
 
         // Cerrar modal con tecla ESC
         window.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {Add commentMore actions
+            if (e.key === 'Escape') {
                 closeModal();
             }
         });

@@ -115,6 +115,34 @@
             margin: 0;
             font-size: 1em;
         }
+        @media (max-width: 1100px) {
+            .products {
+                grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+            }
+            .modal-content {
+                flex-direction: column;
+                width: 85%;
+                padding: 25px 20px;
+                gap: 25px;
+            }
+            .modal-content button {
+                top: 15px;
+                right: 15px;
+            }
+        }
+
+        @media (max-width: 650px) {
+           .products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem; /* o el espacio que quieras entre productos */
+}
+
+            }
+            nav a {
+                padding: 12px 10px;
+                font-size: 0.85rem;
+            }
     </style>
 </head>
 <body>

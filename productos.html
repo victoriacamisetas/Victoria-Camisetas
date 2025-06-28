@@ -366,6 +366,10 @@
     </nav>
 
     <div class="filters">
+        <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Buscar productos..." onkeyup="searchProducts()">
+</div>
+
         <button onclick="filterProducts('retro')">Retro</button>
         <button onclick="filterProducts('actuales')">Actuales</button>
         <button onclick="filterProducts('otros')">Otros</button>

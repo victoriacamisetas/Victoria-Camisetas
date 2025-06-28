@@ -343,8 +343,12 @@
         }
 
         @media (max-width: 650px) {
-            .products {
-                grid-template-columns: 1fr; /* 1 columna */
+           .products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem; /* o el espacio que quieras entre productos */
+}
+
             }
             nav a {
                 padding: 12px 10px;
@@ -378,10 +382,11 @@
     <style>
   <style>
   .products {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem; /* o el espacio que quieras entre productos */
+}
+
   }
   .product {
     flex: 0 0 calc(25% - 15px);

@@ -336,14 +336,15 @@
 /* Pantallas medianas (tablets) */
 @media (max-width: 1100px) {
   .products {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 /* Pantallas pequeñas (celulares) */
 @media (max-width: 650px) {
   .products {
-    grid-template-columns: 1fr; /* Una columna para celulares */
+      overflow-x: auto;
+    grid-template-columns: 3fr; /* Una columna para celulares */
     gap: 12px;
   }
   nav a {

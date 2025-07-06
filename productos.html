@@ -376,6 +376,17 @@
   button:hover {
     background-color: #004999;
   }
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+  padding-top: var(--safe-top);
+}
+
+header {
+  padding-top: calc(20px + var(--safe-top));
+}
 
     </style>
 </head>
